@@ -46,9 +46,10 @@ body > nav {
 }
 
 nav > img {
-  width: 34px;
+  width: 140px;
   object-fit: contain;
   margin-right: auto;
+  border-radius: 50%;
 }
 
 nav > a {
@@ -56,6 +57,7 @@ nav > a {
   text-decoration: none;
   padding: 10px;
   border-radius: 5px;
+  color: black;
 }
 
 nav > a:hover {
@@ -81,4 +83,13 @@ nav > a.active {
 h1 {
   text-align: center;
   font-size: xxx-large;
+}
+
+.card-img, .card-img-bottom, .card-img-top {
+  height: 375px;
+}
+
+.card-title {
+  text-align: center;
+  font-weight: bolder;
 }
