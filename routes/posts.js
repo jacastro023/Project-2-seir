@@ -14,7 +14,7 @@ router.get('/new', isLoggedIn, postsCtrl.new);
 // //posts/all
 // router.get('/id', isLoggedIn, postsCtrl.show);
 // // POST /posts
-router.post('/', isLoggedIn, postsCtrl.create);
+router.post('/', postsCtrl.create);
 
 
 

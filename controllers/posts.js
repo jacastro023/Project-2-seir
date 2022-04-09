@@ -1,4 +1,5 @@
 const User = require('../models/user');
+const Post = require('../models/post')
 
 module.exports = {
   new: newPost,
@@ -17,21 +18,15 @@ function newPost(req, res) {
 }
 
 function create(req, res) {
-  // convert nowShowing's checkbox of nothing or "on" to boolean
-  req.body.nowShowing = !!req.body.nowShowing;
-  // remove whitespace next to commas
-
-
-  // ONE WAY
-  const post = new post(req.body);
+  console.log(req.body);
+  const post = new Post(req.body);
   post.save(function (err) { // mongoose talking 
-    //to mongodb and saying put this object in the posts collection in the database
+    //to mongodb and saying put this object in the movies collection in the database
     // one way to handle errors
     console.log(err, " this err");
     if (err) return res.redirect("/posts/new");
     console.log(post);
     // for now, redirect right back to new.ejs
-    res.redirect(`/posts/${post._id}`);
+    res.redirect(`/posts/index`);
   });
-
 }
