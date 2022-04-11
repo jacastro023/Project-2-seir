@@ -51,7 +51,8 @@ function create(req, res) {
   const post = new Post({
     img: req.file.filename,
     name: req.body.name,
-    description: req.body.description
+    description: req.body.description,
+    postedBy: req.user._id
   });
   post.save(function (err) {
     // mongoose talking
