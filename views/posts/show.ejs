@@ -1,13 +1,10 @@
 <%- include('../partials/header') %>
-
+<div class="detailsPage">
 <div class="card col-md-4">
   <img src="/uploads/images/<%= posts.img %>" class="card-img-top" alt="Post Image">
   <div class="card-body">
     <h5 class="card-title"><%= posts.name %></h5>
     <p class="card-text"><%= posts.description %></p>
-    <div class="details">
-      <a href="/posts/<%= posts._id %>" class="btn btn-primary">Details</a>
-    </div>
   </div>
 </div>
 
@@ -27,26 +24,35 @@
   </form>
 
   <% } %> <% if (posts.comments.length) { %>
-  <table>
+  <table class="container">
     <thead>
       <tr>
-        <th>Date</th>
-        <th>comment</th>
+        <th class="col-3">Date</th>
+        <th class="col-6">comment</th>
+        <th class="col-3">By</th>
       </tr>
     </thead>
     <tbody>
+      <% posts.comments.forEach(function(c) { %> 
       <tr>
-        <td class="review-user">
-              <% posts.comments.forEach(function(c) { %> 
-         <h3><%= posts.postedBy %></h3>
+        
+        <td class="review-user col-3">  
+          <%= (c.createdAt).toString().slice(4, 16) %>
+        <%= (c.createdAt.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })) %>
         </td>
-        <td><%= c.content %></td>
+        <td class="col-6"><%= c.content %></td>
+        <td class="col-3"><%= user.name %> </td>
+        <td><form action="/posts/comments/<%= c._id %>?_method=DELETE" method="POST" >
+          <button type="submit" class="btn btn-primary">Delete</button>
+        </form></td>
       </tr>
+      <% }); %>
     </tbody>
   </table>
-  <% }); %>
+  
   <% } else { %>
   <h5>No Reviews Yet</h5>
   <% } %> 
+</div>
   <%- include('../partials/footer') %>
 

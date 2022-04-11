@@ -34,6 +34,9 @@ router.post('/', upload.single('img'), postsCtrl.create);
 
 router.post('/:id/comments', postsCtrl.addComment)
 
+router.delete('/:id', postsCtrl.delete)
+
+router.delete('/comments/:id', postsCtrl.deleteComment)
 
 
 module.exports = router;

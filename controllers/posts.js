@@ -8,7 +8,31 @@ module.exports = {
   index,
   show,
   addComment,
+  delete: deletePost,
+  deleteComment
 };
+
+function deleteComment(req, res) {
+	Post.findOne({'comments._id': req.params.id}, function(err, post){
+    console.log(post)
+		const comment = post.comments.id(req.params.id);
+		// If the comment wasn't made by the user redirect them back to the same page
+		// remove the comment
+		// 1 way find the comment then call remove method
+		comment.remove()
+
+    post.save(function(err){
+			if(err) next(err); // next(err) passes it to the express generator err handler
+			res.redirect(`/posts/index`)
+		})
+	})
+}
+
+function deletePost(req, res) {
+  Post.findByIdAndDelete(req.params.id, function(err, post) {
+      res.redirect('/posts/index')
+  })
+}
 
 function index(req, res) {
   // res.render("posts/index",{title: 'All Posts'})
@@ -51,7 +75,7 @@ function addComment(req, res) {
   Post.findById(req.params.id, function (err, posts) {
     posts.comments.push(req.body);
     posts.save(function (err) {
-      res.redirect(`/posts/${req.params.id}`, posts);
+      res.redirect(`/posts/${req.params.id}`);
     });
   });
 }

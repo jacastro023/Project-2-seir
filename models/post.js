@@ -13,7 +13,7 @@ const postSchema = new mongoose.Schema({
 	description: String,
 	img: String,
 	postedBy: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
-	 comments: [commentSchema],
+	comments: [commentSchema],
   }, {
 	timestamps: true
   });

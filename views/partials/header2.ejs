@@ -12,13 +12,13 @@
 <body>
   <nav>
     <img src="/images/logo.png">
-    <a href="/" <%- title === 'All Movies' ? 'class="active"' : '' %>>Home</a>
+    <a href="/">Home</a>
     <% if (user) { %>
-      <a href="/profile"	<%- title === 'Add Performer' ? 'class="active"' : '' %>>
+      <a href="/profile">
         Profile</a>
-      <a href="posts/new"	<%- title === 'Add Performer' ? 'class="active"' : '' %>>
+      <a href="/posts/new">
       Post</a>
-      <a href="posts/index"	<%- title === 'Add Performer' ? 'class="active"' : '' %>>
+      <a href="/posts/index">
         Explore</a>
       <a href="/logout">LOG OUT</a>
     <% } else { %>

@@ -101,6 +101,7 @@ h1 {
 .container {
   text-align: center;
   text-align: -webkit-center;
+  margin-bottom: 20px;
 }
 
 .image-preview {
@@ -145,14 +146,34 @@ h1 {
   flex-direction: row;
   justify-content: space-evenly;
   flex-flow: row wrap;
-  /* margin-top: 50px; */
+  margin-top: 50px;
 }
 
 .card {
-  margin-top: 50px;
   width: 20rem;
 }
 
 .details {
+  display: flex;
+  justify-content: space-evenly;
   text-align: center;
+}
+
+.detailsPage {
+    text-align: center;
+    text-align: -webkit-center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.jumbotron {
+  margin-top: 50px;
+}
+
+.lead {
+  margin-bottom: 50px;
+}
+
+#add-review-form {
+  margin-bottom: 50px;
 }
