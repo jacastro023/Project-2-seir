@@ -11,7 +11,7 @@ const commentSchema = new Schema({
 const postSchema = new mongoose.Schema({
 	name: String,
 	description: String,
-	img: [],
+	img: String,
 	postedBy: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
 	 comments: [commentSchema],
   }, {

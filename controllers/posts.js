@@ -1,5 +1,6 @@
 const User = require("../models/user");
 const Post = require("../models/post");
+const { request } = require("../server");
 
 module.exports = {
   new: newPost,
@@ -22,8 +23,12 @@ function newPost(req, res) {
 }
 
 function create(req, res) {
-  console.log(req.body);
-  const post = new Post(req.body);
+  console.log(req.file);
+  const post = new Post({
+    img: req.file.filename,
+    name: req.body.name,
+    description: req.body.description
+  });
   post.save(function (err) {
     // mongoose talking
     //to mongodb and saying put this object in the movies collection in the database
