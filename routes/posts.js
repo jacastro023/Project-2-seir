@@ -11,10 +11,12 @@ router.get('/index', isLoggedIn, postsCtrl.index);
 
 // GET /posts/new
 router.get('/new', isLoggedIn, postsCtrl.new);
-// //posts/all
-// router.get('/id', isLoggedIn, postsCtrl.show);
+
+router.get('/:id', postsCtrl.show);
 // // POST /posts
 router.post('/', postsCtrl.create);
+
+router.post('/:id/comments', postsCtrl.addComment)
 
 
 

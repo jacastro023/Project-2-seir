@@ -138,3 +138,21 @@ h1 {
 #imginput {
   margin-bottom: 15px;
 }
+
+.cards {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-flow: row wrap;
+  /* margin-top: 50px; */
+}
+
+.card {
+  margin-top: 50px;
+  width: 20rem;
+}
+
+.details {
+  text-align: center;
+}

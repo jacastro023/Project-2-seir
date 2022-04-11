@@ -1,3 +1,16 @@
 <%- include('../partials/header') %>
-<h1>All Posts</h1>
+<div class="cards">
+  <% posts.forEach(function(p) { %>
+  <div class="card col-md-4">
+    <img src="<% p.img %>" class="card-img-top" alt="Post Image">
+    <div class="card-body">
+      <h5 class="card-title"><%= p.name %></h5>
+      <p class="card-text"><%= p.description %></p>
+      <div class="details">
+        <a href="/posts/<%= p._id %>" class="btn btn-primary">Details</a>
+      </div>
+    </div>
+  </div>
+  <% }); %>
+</div>
 <%- include('../partials/footer') %>

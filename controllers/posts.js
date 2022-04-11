@@ -1,16 +1,20 @@
-const User = require('../models/user');
-const Post = require('../models/post')
+const User = require("../models/user");
+const Post = require("../models/post");
 
 module.exports = {
   new: newPost,
   create,
-  index
-  // show,
+  index,
+  show,
+  addComment,
 };
 
-
 function index(req, res) {
-      res.render("posts/index",{title: 'All Posts'})
+  // res.render("posts/index",{title: 'All Posts'})
+  Post.find({}, function (err, posts) {
+    console.log(posts);
+    res.render("posts/index", { title: "All Posts", posts });
+  });
 }
 
 function newPost(req, res) {
@@ -20,7 +24,8 @@ function newPost(req, res) {
 function create(req, res) {
   console.log(req.body);
   const post = new Post(req.body);
-  post.save(function (err) { // mongoose talking 
+  post.save(function (err) {
+    // mongoose talking
     //to mongodb and saying put this object in the movies collection in the database
     // one way to handle errors
     console.log(err, " this err");
@@ -28,5 +33,20 @@ function create(req, res) {
     console.log(post);
     // for now, redirect right back to new.ejs
     res.redirect(`/posts/index`);
+  });
+}
+
+function show(req, res) {
+  Post.findById(req.params.id, function (err, posts) {
+    res.render(`posts/show`, { title: "Post Details", posts});
+  });
+}
+
+function addComment(req, res) {
+  Post.findById(req.params.id, function (err, posts) {
+    posts.comments.push(req.body);
+    posts.save(function (err) {
+      res.redirect(`/posts/${req.params.id}`, posts);
+    });
   });
 }

@@ -1,13 +1,19 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+const commentSchema = new Schema({
+	content: {type: String, required: true},
+	user: {type: Schema.Types.ObjectId, ref: 'User'} // referencing the user document
+  }, {
+	timestamps: true
+  });
 // Create your Post Model
 const postSchema = new mongoose.Schema({
 	name: String,
 	description: String,
-	img: String,
+	img: [],
 	postedBy: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
-	comments: [{body:"string", by: mongoose.Schema.Types.ObjectId}]
+	 comments: [commentSchema],
   }, {
 	timestamps: true
   });
