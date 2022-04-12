@@ -10,7 +10,7 @@ router.get('/', function(req, res) {
 
 router.get('/profile', function(req, res) {
   // console.log(req.user._id)
-  Post.find({'postedBy._id': req.user._id}, function(err, posts){
+  Post.find({'postedBy': req.user._id}, function(err, posts){
     console.log(posts)
   res.render('home/profile', {title: 'Profile', posts});
   })
