@@ -10,7 +10,8 @@
   </div>
 </h3>
 <br>
-<div class="cards">
+<h3 class="yourPosts"> Your posts:</h3>
+<div class="profileCards">
   <% posts.forEach(function(p) { %>
   <div class="card col-md-4">
     <img
@@ -26,6 +27,7 @@
         <form action="/posts/<%= p._id %>?_method=DELETE" method="POST">
           <button type="submit" class="btn btn-primary">Delete</button>
         </form>
+        <a href="/posts/<%= p._id %>/edit" class="btn btn-primary">Edit</a>
       </div>
     </div>
   </div>

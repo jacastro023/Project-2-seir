@@ -30,13 +30,16 @@ router.get('/new', isLoggedIn, postsCtrl.new);
 
 router.get('/:id', postsCtrl.show);
 // // POST /posts
-router.post('/', upload.single('img'), postsCtrl.create);
+router.post('/', upload.single('img'), isLoggedIn, postsCtrl.create);
 
-router.post('/:id/comments', postsCtrl.addComment)
+router.post('/:id/comments', isLoggedIn, postsCtrl.addComment)
 
-router.delete('/:id', postsCtrl.delete)
+router.delete('/:id', isLoggedIn, postsCtrl.delete)
 
-router.delete('/comments/:id', postsCtrl.deleteComment)
+router.delete('/comments/:id', isLoggedIn, postsCtrl.deleteComment)
 
+router.get('/:id/edit', isLoggedIn, postsCtrl.editPost)
+
+router.put('/:id', isLoggedIn, postsCtrl.updatePost)
 
 module.exports = router;

@@ -9,8 +9,38 @@ module.exports = {
   show,
   addComment,
   delete: deletePost,
-  deleteComment
+  deleteComment,
+  editPost,
+  updatePost
 };
+
+function updatePost(req, res){
+  console.log(req.body)
+    // Note the cool "dot" syntax to query on the property of a subdoc
+    Post.findById(req.params.id, function(err, post){
+      console.log(post)
+      // https://mongoosejs.com/docs/subdocs.html
+      // const postSubdoc = post.postedBy;
+      // Ensure that the comment was created by the logged in user
+      // if (!postSubdoc.equals(req.user._id)) return res.redirect(`/posts/index`);
+      // Update the text of the comment
+      // img = req.file.filename,
+      post.name = req.body.name,
+      post.description = req.body.description
+      // Save the updated book
+      post.save(function(err) {
+        // Redirect back to the book's show view
+        res.redirect(`/profile`);
+      });
+    });
+}
+
+function editPost(req, res){
+  Post.findById(req.params.id, function (err, posts) {
+    console.log(posts)
+    res.render(`posts/edit`, { title: "Post Details", posts});
+  });
+}
 
 function deleteComment(req, res) {
 	Post.findOne({'comments._id': req.params.id}, function(err, post){
