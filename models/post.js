@@ -4,12 +4,7 @@ const User = require("../models/user");
 
 const commentSchema = new Schema({
 	content: {type: String, required: true},
-	user:  [
-		{
-		   type: mongoose.Schema.Types.ObjectId,
-		   ref: 'User'
-		}
-	 ],
+	commentUser: "",
 	 userName: "" // referencing the user document
   }, {
 	timestamps: true

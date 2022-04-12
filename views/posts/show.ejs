@@ -1,12 +1,16 @@
 <%- include('../partials/header') %>
 <div class="detailsPage">
-<div class="card col-md-4">
-  <img src="/uploads/images/<%= posts.img %>" class="card-img-top" alt="Post Image">
-  <div class="card-body">
-    <h5 class="card-title"><%= posts.name %></h5>
-    <p class="card-text"><%= posts.description %></p>
+  <div class="card col-md-4">
+    <img
+      src="/uploads/images/<%= posts.img %>"
+      class="card-img-top"
+      alt="Post Image"
+    />
+    <div class="card-body">
+      <h5 class="card-title"><%= posts.name %></h5>
+      <p class="card-text"><%= posts.description %></p>
+    </div>
   </div>
-</div>
 
   <br /><br />
   <h2>Reviews</h2>
@@ -33,26 +37,32 @@
       </tr>
     </thead>
     <tbody>
-      <% posts.comments.forEach(function(c) { %> 
+      <% posts.comments.forEach(function(c) { %>
       <tr>
-        
-        <td class="review-user col-3">  
-          <%= (c.createdAt).toString().slice(4, 16) %>
-        <%= (c.createdAt.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })) %>
+        <td class="review-user col-3">
+          <%= (c.createdAt).toString().slice(4, 16) %> <%=
+          (c.createdAt.toLocaleString('en-US', { hour: 'numeric', minute:
+          'numeric', hour12: true })) %>
         </td>
         <td class="col-6"><%= c.content %></td>
-        <td class="col-3"><%= c.userName %> </td>
-        <td><form action="/posts/comments/<%= c._id %>?_method=DELETE" method="POST" >
-          <button type="submit" class="btn btn-primary">Delete</button>
-        </form></td>
+        <td class="col-3"><%= c.userName %></td>
+        <% if (c.commentUser.equals(user._id)) { %>
+        <td>
+          <form
+            action="/posts/comments/<%= c._id %>?_method=DELETE"
+            method="POST"
+          >
+            <button type="submit" class="btn btn-primary">Delete</button>
+          </form>
+        </td>
+        <% } %>
       </tr>
       <% }); %>
     </tbody>
   </table>
-  
+
   <% } else { %>
   <h5>No Reviews Yet</h5>
-  <% } %> 
+  <% } %>
 </div>
-  <%- include('../partials/footer') %>
-
+<%- include('../partials/footer') %>

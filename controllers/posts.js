@@ -104,10 +104,12 @@ function show(req, res) {
 
 function addComment(req, res) {
   console.log(req.body)
+  console.log(req.user._id)
   Post.findById(req.params.id, function (err, posts) {
     posts.comments.push({
       content: req.body.content,
-      userName: req.user.name
+      userName: req.user.name,
+      commentUser: req.user._id
     });
     posts.save(function (err) {
       res.redirect(`/posts/${req.params.id}`);
