@@ -4,7 +4,13 @@ const User = require("../models/user");
 
 const commentSchema = new Schema({
 	content: {type: String, required: true},
-	user: {type: Schema.Types.ObjectId, ref: 'User'} // referencing the user document
+	user:  [
+		{
+		   type: mongoose.Schema.Types.ObjectId,
+		   ref: 'User'
+		}
+	 ],
+	 userName: "" // referencing the user document
   }, {
 	timestamps: true
   });
@@ -20,6 +26,7 @@ const postSchema = new mongoose.Schema({
 		}
 	 ],
 	comments: [commentSchema],
+
   }, {
 	timestamps: true
   });

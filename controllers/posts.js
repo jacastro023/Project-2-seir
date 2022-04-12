@@ -103,8 +103,12 @@ function show(req, res) {
 }
 
 function addComment(req, res) {
+  console.log(req.body)
   Post.findById(req.params.id, function (err, posts) {
-    posts.comments.push(req.body);
+    posts.comments.push({
+      content: req.body.content,
+      userName: req.user.name
+    });
     posts.save(function (err) {
       res.redirect(`/posts/${req.params.id}`);
     });

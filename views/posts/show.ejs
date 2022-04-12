@@ -41,7 +41,7 @@
         <%= (c.createdAt.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })) %>
         </td>
         <td class="col-6"><%= c.content %></td>
-        <td class="col-3"><%= user.name %> </td>
+        <td class="col-3"><%= c.userName %> </td>
         <td><form action="/posts/comments/<%= c._id %>?_method=DELETE" method="POST" >
           <button type="submit" class="btn btn-primary">Delete</button>
         </form></td>
