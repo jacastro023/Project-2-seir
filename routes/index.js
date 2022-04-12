@@ -1,5 +1,7 @@
 var router = require('express').Router();
 const passport = require('passport');
+const Post = require("../models/post");
+const User = require("../models/user");
 
 // The root route renders our only view
 router.get('/', function(req, res) {
@@ -7,7 +9,11 @@ router.get('/', function(req, res) {
 });
 
 router.get('/profile', function(req, res) {
-  res.render('home/profile', {title: 'Profile'});
+  // console.log(req.user._id)
+  Post.find({'postedBy._id': req.user._id}, function(err, posts){
+    console.log(posts)
+  res.render('home/profile', {title: 'Profile', posts});
+  })
 });
 
 // Google OAuth login route

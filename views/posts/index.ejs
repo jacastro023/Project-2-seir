@@ -12,7 +12,7 @@
       <p class="card-text"><%= p.description %></p>
       <div class="details">
         <a href="/posts/<%= p._id %>" class="btn btn-primary">Details</a>
-        <form action="/posts/<%= p._id %>?_method=DELETE" method="POST" >
+        <form action="/posts/<%= p._id %>?_method=DELETE" method="POST">
           <button type="submit" class="btn btn-primary">Delete</button>
         </form>
       </div>
