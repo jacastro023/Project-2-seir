@@ -200,3 +200,17 @@ h1 {
   justify-content: center;
   font-weight: bold;
 }
+
+.like {
+  display: flex;
+}
+
+.likedisplay {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.detailslike {
+  display: flex;
+  align-self: center;
+}

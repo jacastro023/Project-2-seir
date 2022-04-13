@@ -21,6 +21,18 @@ const postSchema = new mongoose.Schema({
 		}
 	 ],
 	comments: [commentSchema],
+	likes:[
+		{
+		   type: Schema.Types.ObjectId,
+		   ref: 'User'
+		}
+	 ],
+	 unlikes:[
+		{
+		   type: Schema.Types.ObjectId,
+		   ref: 'User'
+		}
+	 ]
 
   }, {
 	timestamps: true

@@ -10,19 +10,38 @@
       <h5 class="card-title"><%= posts.name %></h5>
       <p class="card-text"><%= posts.description %></p>
     </div>
+    <div class="detailslike">
+      <form
+        method="post"
+        id="post-form"
+        action="/posts/like/<%= posts._id %>?_method=PUT"
+      >
+        <button><i class="bi bi-hand-thumbs-up"></i></button>
+      </form>
+
+      <span class="likedisplay"><%= posts.likes.length %> </span>
+      <form
+        method="post"
+        id="post-form"
+        action="/posts/unlike/<%= posts._id %>?_method=PUT"
+      >
+        <button><i class="bi bi-hand-thumbs-down"></i></button>
+      </form>
+      <span class="likedisplay"><%= posts.unlikes.length %> </span>
+    </div>
   </div>
 
   <br /><br />
-  <h2>Reviews</h2>
+  <h2>Comments</h2>
 
   <% if (user) { %>
 
   <form
-    id="add-review-form"
+    id="add-comment-form"
     method="POST"
     action="/posts/<%= posts._id %>/comments"
   >
-    <label>Review:</label>
+    <label>comment:</label>
     <textarea name="content"></textarea>
     <input type="submit" value="Add Comment" />
   </form>
@@ -39,7 +58,7 @@
     <tbody>
       <% posts.comments.forEach(function(c) { %>
       <tr>
-        <td class="review-user col-3">
+        <td class="comment-user col-3">
           <%= (c.createdAt).toString().slice(4, 16) %> <%=
           (c.createdAt.toLocaleString('en-US', { hour: 'numeric', minute:
           'numeric', hour12: true })) %>
@@ -62,7 +81,7 @@
   </table>
 
   <% } else { %>
-  <h5>No Reviews Yet</h5>
+  <h5>No comments Yet</h5>
   <% } %>
 </div>
 <%- include('../partials/footer') %>

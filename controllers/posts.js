@@ -11,20 +11,78 @@ module.exports = {
   delete: deletePost,
   deleteComment,
   editPost,
-  updatePost
+  updatePost,
+  updateLikes,
+  updateUnlikes,
+  updateLike,
+  updateUnlike
 };
+
+function updateLike(req, res){
+
+  Post.findById(req.params.id, function(err, post){
+    console.log(post)
+    console.log(req.user._id)
+    if(post.likes.includes(req.user._id)){
+      post.likes.pull(req.user._id)
+    } else {
+      post.likes.push(req.user._id)
+    }
+    post.save(function(err) {
+      res.redirect(`/posts/${req.params.id}`);
+    });
+  });
+}
+
+
+function updateUnlike(req, res){
+Post.findById(req.params.id, function(err, post){
+  if(post.unlikes.includes(req.user._id)){
+    post.unlikes.pull(req.user._id)
+  } else {
+    post.unlikes.push(req.user._id)
+  }
+  post.save(function(err) {
+    res.redirect(`/posts/${req.params.id}`);
+  });
+});
+}
+
+function updateLikes(req, res){
+
+    Post.findById(req.params.id, function(err, post){
+      console.log(post)
+      console.log(req.user._id)
+      if(post.likes.includes(req.user._id)){
+        post.likes.pull(req.user._id)
+      } else {
+        post.likes.push(req.user._id)
+      }
+      post.save(function(err) {
+        res.redirect(`/posts/index`);
+      });
+    });
+}
+
+
+function updateUnlikes(req, res){
+  Post.findById(req.params.id, function(err, post){
+    if(post.unlikes.includes(req.user._id)){
+      post.unlikes.pull(req.user._id)
+    } else {
+      post.unlikes.push(req.user._id)
+    }
+    post.save(function(err) {
+      res.redirect(`/posts/index`);
+    });
+  });
+}
 
 function updatePost(req, res){
   console.log(req.body)
     // Note the cool "dot" syntax to query on the property of a subdoc
     Post.findById(req.params.id, function(err, post){
       console.log(post)
-      // https://mongoosejs.com/docs/subdocs.html
-      // const postSubdoc = post.postedBy;
-      // Ensure that the comment was created by the logged in user
-      // if (!postSubdoc.equals(req.user._id)) return res.redirect(`/posts/index`);
-      // Update the text of the comment
-      // img = req.file.filename,
       post.name = req.body.name,
       post.description = req.body.description
       // Save the updated book
@@ -91,7 +149,7 @@ function create(req, res) {
     console.log(err, " this err");
     if (err) return res.redirect("/posts/new");
     console.log(post);
-    // for now, redirect right back to new.ejs
+    // for now, redirect right back to index.ejs
     res.redirect(`/posts/index`);
   });
 }

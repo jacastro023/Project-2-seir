@@ -42,4 +42,12 @@ router.get('/:id/edit', isLoggedIn, postsCtrl.editPost)
 
 router.put('/:id', isLoggedIn, postsCtrl.updatePost)
 
+router.put('/likes/:id', isLoggedIn, postsCtrl.updateLikes)
+
+router.put('/unlikes/:id', isLoggedIn, postsCtrl.updateUnlikes)
+
+router.put('/like/:id', isLoggedIn, postsCtrl.updateLike)
+
+router.put('/unlike/:id', isLoggedIn, postsCtrl.updateUnlike)
+
 module.exports = router;

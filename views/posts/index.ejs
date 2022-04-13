@@ -12,6 +12,25 @@
       <p class="card-text"><%= p.description %></p>
       <div class="details">
         <a href="/posts/<%= p._id %>" class="btn btn-primary">Details</a>
+        <div class="like">
+          <form
+            method="post"
+            id="post-form"
+            action="/posts/likes/<%= p._id %>?_method=PUT"
+          >
+            <button><i class="bi bi-hand-thumbs-up"></i></button>
+          </form>
+
+          <span class="likedisplay"><%= p.likes.length %> </span>
+          <form
+            method="post"
+            id="post-form"
+            action="/posts/unlikes/<%= p._id %>?_method=PUT"
+          >
+            <button><i class="bi bi-hand-thumbs-down"></i></button>
+          </form>
+          <span class="likedisplay"><%= p.unlikes.length %> </span>
+        </div>
       </div>
     </div>
   </div>

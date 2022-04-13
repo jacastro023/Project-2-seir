@@ -6,14 +6,14 @@
       <img src="" alt="Image Preview" class="image_preview" />
       <span class="image_default">Image Preview</span>
     </div>
-    <input type="file" onchange="preview()" name="img" id="imginput" accept="image/png, image/gif, image/jpeg"/>
+    <input type="file" onchange="preview()" name="img" id="imginput" accept="image/png, image/gif, image/jpeg" required/>
     <br>
     <label for="name">Name:</label>
-    <input type="text" name="name"/>
+    <input type="text" name="name" required/>
     <br>
     <label for="description">Description:</label>
     <br>
-<textarea id="description" name="description" placeholder="Description here...">
+<textarea id="description" name="description" placeholder="Description here..." required>
 </textarea>
 <br>
     <input type="submit" value="Submit" />
