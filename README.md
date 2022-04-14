@@ -1,35 +1,30 @@
-# passport-boilerplate
+# Proud Creations
+In this website the users are able to post whatever they are proud of. They can create a new post by adding an image, a name for the image and a description of the image or an explenation as to what it is they are posting. In the navbar there is a link called explore, which leads to all of the posts by all of the users. This project uses google login authentication, upon loging in the user is redirected to their profile page where they can see all of their own posts. On their profile, they can edit or delete their own posts. Each post also has a detail page in which users can like on comment on the posts. Only the user who commented can delete their comment. Everyone can see the home page without having to login, this page contains a desription and examples of what users can post about.
 
+## Screenshots
+#### This is how the home page look like:
+![Home Page](/public/images/home.png)
+#### Profile Page:
+![Profile Page](/public/images/profile.png)
+#### New Post Page:
+![Home Page](/public/images/new-post.png)
+#### Explore Page:
+![Home Page](/public/images/all-posts.png)
+#### Details Page:
+![Home Page](/public/images/comment.png)
 
-This is your passport boilerplate.
+## Technologies Used:
+* HTLM: This was used to set-up the views of each page.
+* JS:  Javascript was used to be able to display the preview of the image being uploaded.
+* CSS: CSS was used throughout the project to align and adjust all pages.
+* Mongodb/Mongoose: This was the database that was used to store all of out data. users/posts
+* Express: was used to set-up the framework for node.js
+* Multer: was used to store and upload the images the user was selecting for their posts
+* Passport: Passport was used together with passport-google-auth to let users sign in with google
 
-## Setup 
+## Getting Started:
+[Proud Creations](https://proud-creations.herokuapp.com/)
+[TrelloBoard](https://trello.com/b/aSNI4uhi/project-2)
 
-1. Clone the repo
-2. Rename the folder to your Project
-3. Delete the `.git` file, when you are in the root of the file, you can press `ls` and you should see a `.git` file, then go ahead and run `rm -rf .git`
-
-
-#### Setup your git repo
-0. Setup your `.env` file and add all the things you need! (look at mongoose movies for reference!)
-1. in the project root `git init`
-2. `git add .` to add all the starter code
-3. `git commit -m "setup boilerplate"` 
-4. go to github and create your github and create a repo (Without a readme or liscense you can add that later!)
-5. copy the remote address
-6. In your terminal add the remote `git remote add origin yourGithubRepo'sAddressGoesHere`
-7. `git pull origin master` If a screen pulls up asking you to do something just press `:q` and then `enter` (thats vim btw :) )
-8. `git push origin master`
-
-#### Setup your login
-
-0. Setup your database connection string
-1. Then Setup Your User Model, 
-2. Follow the steps from the lesson plan to get your Google login credentials for your `.env` file (create the file if you haven't), or you can just copy the ones from earlier if you want to reuse them.
-3. Setup the Code in your config passport 
-4. Setup your callback routes in your `routes/index`
-5. Setup a view and test your login!
-
-#### Make a commit 
-
-```git commit -m "setup up oauth and User Model"```
+## Next Steps:
+* In the future I want users to be able to interact with other users.
