@@ -31,6 +31,7 @@ In this website the users are able to post whatever they are proud of. They can 
 ## Next Steps:
 * In the future I want users to be able to interact with other users.
 * Users should be able to follow or friend other users.
-* Filtering system for all the posts
+* Filtering system for all the posts.
 * A user should be able to select a certain theme they want their post in.
-* A user should be able to serach for a certain post
+* A user should be able to serach for a certain post.
+* A user should be able to click an image and enlarge it.
