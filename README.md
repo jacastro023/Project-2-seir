@@ -24,6 +24,7 @@ In this website the users are able to post whatever they are proud of. They can 
 * Bootstrap: was used throught the pages to help design and create the containers, such as the cards created for each post.
 
 ## Getting Started:
+   If opening on mobile, make sure to zoom out. Not sure why it zooms in at every refresh.
 * [Proud Creations](https://proud-creations.herokuapp.com/)
 * [TrelloBoard](https://trello.com/b/aSNI4uhi/project-2)
 
