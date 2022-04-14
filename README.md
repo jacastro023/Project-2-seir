@@ -23,8 +23,8 @@ In this website the users are able to post whatever they are proud of. They can 
 * Passport: Passport was used together with passport-google-auth to let users sign in with google
 
 ## Getting Started:
-[Proud Creations](https://proud-creations.herokuapp.com/)
-[TrelloBoard](https://trello.com/b/aSNI4uhi/project-2)
+* [Proud Creations](https://proud-creations.herokuapp.com/)
+* [TrelloBoard](https://trello.com/b/aSNI4uhi/project-2)
 
 ## Next Steps:
 * In the future I want users to be able to interact with other users.
