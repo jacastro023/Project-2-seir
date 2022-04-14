@@ -15,6 +15,7 @@ const storage = multer.diskStorage({
     }
 });
 
+// with this upload you can 
 const upload = multer({
     storage: storage,
     limits:{
@@ -29,7 +30,7 @@ router.get('/index', isLoggedIn, postsCtrl.index);
 router.get('/new', isLoggedIn, postsCtrl.new);
 
 router.get('/:id', postsCtrl.show);
-// // POST /posts
+
 router.post('/', upload.single('img'), isLoggedIn, postsCtrl.create);
 
 router.post('/:id/comments', isLoggedIn, postsCtrl.addComment)

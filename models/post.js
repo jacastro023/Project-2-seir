@@ -5,10 +5,11 @@ const User = require("../models/user");
 const commentSchema = new Schema({
 	content: {type: String, required: true},
 	commentUser: "",
-	 userName: "" // referencing the user document
+	userName: "" 
   }, {
 	timestamps: true
   });
+
 // Create your Post Model
 const postSchema = new mongoose.Schema({
 	name: String,
