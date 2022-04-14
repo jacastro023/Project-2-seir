@@ -21,6 +21,7 @@ In this website the users are able to post whatever they are proud of. They can 
 * Express: was used to set-up the framework for node.js
 * Multer: was used to store and upload the images the user was selecting for their posts
 * Passport: Passport was used together with passport-google-auth to let users sign in with google
+* Bootstrap: was used throught the pages to help design and create the containers, such as the cards created for each post.
 
 ## Getting Started:
 [Proud Creations](https://proud-creations.herokuapp.com/)
@@ -28,3 +29,7 @@ In this website the users are able to post whatever they are proud of. They can 
 
 ## Next Steps:
 * In the future I want users to be able to interact with other users.
+* Users should be able to follow or friend other users.
+* Filtering system for all the posts
+* A user should be able to select a certain theme they want their post in.
+* A user should be able to serach for a certain post
