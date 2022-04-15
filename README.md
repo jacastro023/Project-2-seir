@@ -22,6 +22,7 @@ In this website the users are able to post whatever they are proud of. They can 
 * Multer: was used to store and upload the images the user was selecting for their posts
 * Passport: Passport was used together with passport-google-auth to let users sign in with google
 * Bootstrap: was used throught the pages to help design and create the containers, such as the cards created for each post.
+* Heroku: was used to deploy the application.
 
 ## Getting Started:
    If opening on mobile, make sure to zoom out. Not sure why it zooms in at every refresh.
