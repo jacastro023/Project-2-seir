@@ -106,7 +106,7 @@ function deleteComment(req, res) {
 
 function deletePost(req, res) {
   Post.findByIdAndDelete(req.params.id, function(err, post) { // use build in function to delete the post
-      res.redirect('/posts/index') // redirect to all posts page
+      res.redirect('/profile') // redirect to all posts page
   })
 }
 
